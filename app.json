@@ -1,0 +1,34 @@
+{
+    "name": "xrayR",
+    "description": "Deploy xrayR on heroku.",
+    "keywords": "xrayr",
+    "env": {
+        "PanelType":{
+            "description": "Panel type: SSpanel, V2board, PMpanel,  Proxypanel",
+            "value": "SSpanel"
+        },
+        "ApiHost": {
+            "description": "Api Host Url",
+            "value": "http://hxcq.top"
+        },
+        "ApiKey": {
+            "description": "ApiKey",
+            "value": "qianxun"
+        },
+        "NodeID": {
+            "description": "NodeID",
+            "value": 32
+        },
+        "NodeType": {
+            "description": "NodeType",
+            "value": "V2ray"
+        },
+        "downUrl": {
+            "description": "xrayR dowanload url",
+            "value": "https://github.com/long2k3pro/XrayR/releases/download/v0.8.2.2/XrayR-linux-64.zip"
+        }
+    },
+    "website": "https://github.com/missuo/XrayR",
+    "repository": "https://github.com/missuo/XrayR",
+    "stack": "container"
+}
