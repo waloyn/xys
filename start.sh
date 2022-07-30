@@ -1,7 +1,8 @@
 #!/bin/sh
-# https://github.com/long2k3pro/XrayR/releases/download/v0.8.2.2/XrayR-linux-64.zip
+
 # Global variables
 XPATH="/usr/local"
+GPATH="/usr/bin"
 TMP="$(mktemp -d)"
 
 #Get XrayR 
@@ -14,9 +15,17 @@ sed -i "s/ApiHost: \"http:\/\/127.0.0.1:667\"/ApiHost: ${ApiHost}/g" ${XPATH}/xr
 sed -i "s/ApiKey: \"123\"/ApiKey: ${ApiKey}/g" ${XPATH}/xrayr/config.yml
 sed -i "s/NodeID: 41/NodeID: ${NodeID}/g" ${XPATH}/xrayr/config.yml
 sed -i "s/NodeType: V2ray/NodeType: ${NodeType}/g" ${XPATH}/xrayr/config.yml
+ln -s ${XPATH}/xrayr /etc/XrayR
 
-#Install XrayR
-#install -m 755 ${TMP}/gost ${RUNTIME}
+#Get Gost
+curl --retry 5 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL "https://github.com/go-gost/gost/releases/download/v3.0.0-beta.1/gost-linux-amd64-3.0.0-beta.1.gz" -o ${TMP}/gost.gz
+busybox gzip -d ${TMP}/gost.gz
+
+#Install Gost
+install -m 755 ${TMP}/gost  ${GPATH}
 
 #Run XrayR
-${XPATH}/xrayr/XrayR -config ${XPATH}/xrayr/config.yml
+nohup ${XPATH}/xrayr/XrayR -config ${XPATH}/xrayr/config.yml &
+
+#Run Gost
+${GPATH}/gost -L tcp://:${PORT}/:10010
