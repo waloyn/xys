@@ -9,7 +9,7 @@
         },
         "ApiHost": {
             "description": "Api Host Url",
-            "value": "http://www.test.com"
+            "value": "http:\/\/www.test.com"
         },
         "ApiKey": {
             "description": "ApiKey",
