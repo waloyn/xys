@@ -26,6 +26,10 @@
         "downUrl": {
             "description": "xrayR dowanload url",
             "value": "https://github.com/long2k3pro/XrayR/releases/download/v0.8.2.2/XrayR-linux-64.zip"
+        },
+        "gostUrl": {
+            "description": "gost dowanload url",
+            "value": "https://github.com/go-gost/gost/releases/download/v3.0.0-beta.1/gost-linux-amd64-3.0.0-beta.1.gz"
         }
     },
     "website": "https://github.com/missuo/XrayR",
