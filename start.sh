@@ -17,8 +17,7 @@ sed -i "s/NodeID: 41/NodeID: ${NodeID}/g" ${XPATH}/xrayr/config.yml
 sed -i "s/NodeType: V2ray/NodeType: ${NodeType}/g" ${XPATH}/xrayr/config.yml
 ln -s ${XPATH}/xrayr /etc/XrayR
 
-#Get Gost
-curl --retry 5 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL "https://github.com/go-gost/gost/releases/download/v3.0.0-beta.1/gost-linux-amd64-3.0.0-beta.1.gz" -o ${TMP}/gost.gz
+curl --retry 5 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL ${gostUrl} -o ${TMP}/gost.gz
 busybox gzip -d ${TMP}/gost.gz
 
 #Install Gost
